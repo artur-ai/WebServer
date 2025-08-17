@@ -13,9 +13,9 @@ public class ResourceReader {
 
     public byte[] readResource(String uri) throws IOException {
         if (uri.contains("index")) {
-            return Files.readAllBytes(Paths.get(webPath, "index.html"));
+            return Files.readAllBytes(Paths.get(webPath,   "index.html"));
         } else if (uri.contains("css")) {
-            return Files.readAllBytes(Paths.get(webPath, "css", "style.css"));
+            return Files.readAllBytes(Paths.get(webPath,   "css", "style.css"));
         } else {
             return "<h1>404 Not Found</h1>".getBytes();
         }

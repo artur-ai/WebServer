@@ -27,10 +27,11 @@ public class Server {
             while (true) {
                 Socket clientSocket = serverSocket.accept();
                 logger.info("Client connected " + clientSocket.getInetAddress());
-                new Thread(new RequestHandler(clientSocket, webPath)).start();
+                RequestHandler requestHandler = new RequestHandler(clientSocket, webPath);
+                requestHandler.handle();
             }
-        } catch (IOException e) {
-            logger.log(Level.SEVERE, "Error with server", e);
+        } catch (IOException exception) {
+            logger.log(Level.SEVERE, "Error with server", exception);
         }
     }
 }
